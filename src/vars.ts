@@ -1,10 +1,30 @@
+// https://refactoring.guru/design-patterns/singleton/typescript/example
 import getSquareArray from "./functions/getSquareArray";
 
-const TABLE_SIZE = 4;
-const NUMBER_OF_X = 3;
-let tableArray: tableArrayType = getSquareArray(TABLE_SIZE, null);
-let moveHistory: moveHistoryType = getSquareArray(TABLE_SIZE, undefined);
-let start: startType;
-let end: endType;
+class Vars {
+  private static instance: Vars;
 
-export { TABLE_SIZE, NUMBER_OF_X, tableArray, moveHistory, start, end };
+  public TABLE_SIZE = 4;
+  public NUMBER_OF_X = 3;
+  public tableArray: tableArrayType = getSquareArray(this.TABLE_SIZE, null);
+  public moveHistory: moveHistoryType = getSquareArray(
+    this.TABLE_SIZE,
+    undefined
+  );
+  public start: startType;
+  public end: endType;
+
+  private constructor() {}
+
+  public static getInstance(): Vars {
+    if (!Vars.instance) {
+      Vars.instance = new Vars();
+    }
+
+    return Vars.instance;
+  }
+}
+
+const vars = Vars.getInstance();
+
+export default vars;

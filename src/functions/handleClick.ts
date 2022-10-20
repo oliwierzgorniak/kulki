@@ -1,6 +1,6 @@
 import findPath from "./path/findPath";
 
-import { start, end, tableArray } from "../vars";
+import Vars from "../Vars";
 import reconstructPath from "./path/reconstructPath";
 import showPath from "./path/showPath";
 
@@ -17,22 +17,20 @@ export default function handleClick() {
       if (elementClicked?.innerText !== "") return;
 
       // first point
-      if (!start && elementClicked != null) {
-        tableArray[y][x] = "S";
+      if (!Vars.start && elementClicked != null) {
+        Vars.tableArray[y][x] = "S";
         elementClicked.innerHTML = "S";
-        // @ts-ignore
-        start = { y: y, x: x };
+        Vars.start = { y: y, x: x };
         return;
       }
 
       // second point
-      if (start && !end && elementClicked) {
-        tableArray[y][x] = "M";
+      if (Vars.start && !Vars.end && elementClicked) {
+        Vars.tableArray[y][x] = "M";
         elementClicked.innerHTML = "M";
-        // @ts-ignore
-        end = { y: y, x: x };
+        Vars.end = { y: y, x: x };
 
-        const isPathFound = findPath(start);
+        const isPathFound = findPath(Vars.start);
         if (isPathFound) {
           const path = reconstructPath();
           showPath(path);

@@ -1,14 +1,14 @@
-import { NUMBER_OF_X, TABLE_SIZE, tableArray } from "../vars";
+import Vars from "../Vars";
 
 export default function addXsignsToTable() {
-  let numberOfXtoPlaceLeft = NUMBER_OF_X;
+  let numberOfXtoPlaceLeft = Vars.NUMBER_OF_X;
   while (numberOfXtoPlaceLeft > 0) {
-    const { y, x } = getRandomPosition(TABLE_SIZE);
+    const { y, x } = getRandomPosition(Vars.TABLE_SIZE);
 
     // space occupied
-    if (tableArray[y][x] !== null) continue;
+    if (Vars.tableArray[y][x] !== null) continue;
 
-    tableArray[y][x] = "x";
+    Vars.tableArray[y][x] = "x";
     let tdElement: HTMLTableCellElement | null = document.querySelector(
       `td[data-y="${y}"][data-x="${x}"]`
     );

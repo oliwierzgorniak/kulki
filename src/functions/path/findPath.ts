@@ -1,6 +1,6 @@
 import reconstructPath from "./reconstructPath";
 import showPath from "./showPath";
-import { tableArray, moveHistory, end } from "../../vars";
+import Vars from "../../Vars";
 
 let indexedSpots: indexedSpotsType = [];
 let currentIndex = 1;
@@ -32,8 +32,8 @@ function getSpotsToCheck(spotChecked: position): position[] {
   const spotsToCheck = surroningSpots.filter((spot) => {
     try {
       return (
-        tableArray[spot.y][spot.x] === null ||
-        tableArray[spot.y][spot.x] === "M"
+        Vars.tableArray[spot.y][spot.x] === null ||
+        Vars.tableArray[spot.y][spot.x] === "M"
       );
     } catch {
       return false;
@@ -44,13 +44,13 @@ function getSpotsToCheck(spotChecked: position): position[] {
 }
 function checkIsEndPointFound(spotChecked: position, spotsToCheck: position[]) {
   for (let { y, x } of spotsToCheck) {
-    if (typeof end === "undefined") {
+    if (typeof Vars.end === "undefined") {
       console.error("Error while finding path. End variable is undefined.");
       continue;
     }
 
-    if (y === end.y && x === end.x) {
-      moveHistory[y][x] = spotChecked;
+    if (y === Vars.end.y && x === Vars.end.x) {
+      Vars.moveHistory[y][x] = spotChecked;
       return true;
     }
   }
@@ -64,12 +64,12 @@ function addPositionToMoveHistory(
 ) {
   spotsToCheck.forEach((spot) => {
     const { y, x } = spot;
-    tableArray[y][x] = currentIndex;
+    Vars.tableArray[y][x] = currentIndex;
     currentIndex++;
     indexedSpots.push(spot);
 
-    if (typeof moveHistory[y][x] === "undefined") {
-      moveHistory[y][x] = spotChecked;
+    if (typeof Vars.moveHistory[y][x] === "undefined") {
+      Vars.moveHistory[y][x] = spotChecked;
     }
   });
 }

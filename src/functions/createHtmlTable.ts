@@ -1,9 +1,9 @@
-import { tableArray } from "../vars";
+import Vars from "../Vars";
 
 export default function createTable() {
   let tableElement = document.querySelector("table");
 
-  tableArray.forEach((arr: cellType[], y: number) => {
+  Vars.tableArray.forEach((arr: cellType[], y: number) => {
     let trElement = document.createElement("tr");
     arr.forEach((el: cellType, x: number) => {
       let tdElement = document.createElement("td");
