@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+#board {
+  display: grid;
+  grid-template-columns: repeat(9, auto);
+  grid-template-rows: repeat(9, auto);
+  width: min-content;
+}
+
+.cell {
+  border: 1px solid black;
+  width: 1.5em;
+  height: 1.5em;
+  margin: 0;
+  font-size: 2rem;
+  text-align: center;
+  display: grid;
+  place-items: center;
+  justify-items: center;
+  align-items: center;
+}
+
+#next-balls {
+  display: flex;
+  margin-bottom: 1em;
+  gap: 0.2em;
+}
+
+.ball {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}

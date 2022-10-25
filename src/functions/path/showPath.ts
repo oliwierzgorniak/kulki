@@ -1,10 +1,10 @@
 export default function showPath(spots: position[]) {
   spots.forEach(({ y, x }) => {
-    let tableCellElement: HTMLTableCellElement | null = document.querySelector(
-      `td[data-y="${y}"][data-x="${x}"]`
+    let boardCellElement: HTMLDivElement | null = document.querySelector(
+      `.cell[data-y="${y}"][data-x="${x}"]`
     );
-    if (tableCellElement) {
-      tableCellElement.style.background = "red";
+    if (boardCellElement) {
+      boardCellElement.style.background = "red";
     }
   });
 }

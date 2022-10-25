@@ -5,11 +5,11 @@ import reconstructPath from "./path/reconstructPath";
 import showPath from "./path/showPath";
 
 export default function handleClick() {
-  let tdElements = document.querySelectorAll("td");
+  let cellElements = document.querySelectorAll(".cell");
 
-  tdElements.forEach((el) => {
+  cellElements.forEach((el) => {
     el.addEventListener("click", (e) => {
-      let elementClicked = e.target as HTMLTableCellElement | null;
+      let elementClicked = e.target as HTMLDivElement | null;
       const y = Number(elementClicked?.dataset.y);
       const x = Number(elementClicked?.dataset.x);
 
@@ -18,7 +18,7 @@ export default function handleClick() {
 
       // first point
       if (!Vars.start && elementClicked != null) {
-        Vars.tableArray[y][x] = "S";
+        Vars.boardArray[y][x] = "S";
         elementClicked.innerHTML = "S";
         Vars.start = { y: y, x: x };
         return;
@@ -26,7 +26,7 @@ export default function handleClick() {
 
       // second point
       if (Vars.start && !Vars.end && elementClicked) {
-        Vars.tableArray[y][x] = "M";
+        Vars.boardArray[y][x] = "M";
         elementClicked.innerHTML = "M";
         Vars.end = { y: y, x: x };
 

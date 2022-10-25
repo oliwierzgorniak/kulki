@@ -1,5 +1,3 @@
-import reconstructPath from "./reconstructPath";
-import showPath from "./showPath";
 import Vars from "../../Vars";
 
 let indexedSpots: indexedSpotsType = [];
@@ -32,8 +30,8 @@ function getSpotsToCheck(spotChecked: position): position[] {
   const spotsToCheck = surroningSpots.filter((spot) => {
     try {
       return (
-        Vars.tableArray[spot.y][spot.x] === null ||
-        Vars.tableArray[spot.y][spot.x] === "M"
+        Vars.boardArray[spot.y][spot.x] === null ||
+        Vars.boardArray[spot.y][spot.x] === "M"
       );
     } catch {
       return false;
@@ -64,7 +62,7 @@ function addPositionToMoveHistory(
 ) {
   spotsToCheck.forEach((spot) => {
     const { y, x } = spot;
-    Vars.tableArray[y][x] = currentIndex;
+    Vars.boardArray[y][x] = currentIndex;
     currentIndex++;
     indexedSpots.push(spot);
 

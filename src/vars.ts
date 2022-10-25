@@ -4,15 +4,24 @@ import getSquareArray from "./functions/getSquareArray";
 class Vars {
   private static instance: Vars;
 
-  public TABLE_SIZE = 4;
-  public NUMBER_OF_X = 3;
-  public tableArray: tableArrayType = getSquareArray(this.TABLE_SIZE, null);
+  public board_SIZE = 9;
+  // public NUMBER_OF_BALLS = 12;
+  public ballsColors = [
+    "#303549",
+    "#140189",
+    "#812331",
+    "#970321",
+    "#727121",
+    "#297429",
+  ];
+  public boardArray: boardArrayType = getSquareArray(this.board_SIZE, null);
   public moveHistory: moveHistoryType = getSquareArray(
-    this.TABLE_SIZE,
+    this.board_SIZE,
     undefined
   );
   public start: startType;
   public end: endType;
+  public nextBalls: string[] = ["#303549", "#140189", "#812331"];
 
   private constructor() {}
 
