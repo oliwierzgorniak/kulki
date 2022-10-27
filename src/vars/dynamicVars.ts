@@ -27,7 +27,8 @@ class DynamicVars {
 
   // path finding algorithm
   public indexedSpots: indexedSpotsType = [];
-  currentIndex = 1;
+  public currentIndex = 1;
+  public isPathFound = false;
 
   private constructor() {}
 

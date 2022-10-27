@@ -30,6 +30,7 @@ export function handleMouseEnter(e: Event) {
   }
 
   const isPathFound = findPath(dynamicVars.start);
+  dynamicVars.isPathFound = !!isPathFound;
 
   if (isPathFound) {
     const path = reconstructPath();
