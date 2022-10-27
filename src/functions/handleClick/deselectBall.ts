@@ -5,5 +5,6 @@ export default function deselectBall() {
     console.error("no last ball selected");
     return;
   }
+  dynamicVars.isBallSelected = false;
   dynamicVars.lastBallSelected.style.transform = "scale(1)";
 }
