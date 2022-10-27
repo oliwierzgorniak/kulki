@@ -21,6 +21,11 @@
   place-items: center;
   justify-items: center;
   align-items: center;
+  cursor: pointer;
+}
+
+.path-highlight {
+  background-color: rgb(219, 149, 149);
 }
 
 #next-balls {
@@ -33,4 +38,5 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
+  pointer-events: none;
 }

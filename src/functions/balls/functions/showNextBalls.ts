@@ -1,4 +1,4 @@
-import Vars from "../../../Vars";
+import dynamicVars from "../../../vars/dynamicVars";
 import getBallElement from "./getBallElement";
 
 export default function showNextBalls() {
@@ -12,7 +12,7 @@ export default function showNextBalls() {
 
   nextBallsElement.innerHTML = "";
 
-  Vars.nextBalls.forEach((ballColor) => {
+  dynamicVars.nextBalls.forEach((ballColor) => {
     const ballElement = getBallElement(ballColor);
     nextBallsElement?.append(ballElement);
   });

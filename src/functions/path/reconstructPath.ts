@@ -1,23 +1,36 @@
-import Vars from "../../Vars";
+import dynamicVars from "../../vars/dynamicVars";
 
 export default function reconstructPath() {
+  const start = Object.assign({}, dynamicVars.start);
+  // console.log("start", start);
   let path = [];
-  let spot: position | undefined = Vars.end;
+  if (typeof dynamicVars.end === "undefined") {
+    console.log("Vars.end is undefined");
+    return [];
+  }
+  path.push(dynamicVars.end);
+  let spot: position | undefined = dynamicVars.end;
 
-  while (true) {
+  let i = 100;
+  while (i > 0) {
+    i--;
     if (typeof spot === "undefined") {
       console.error("Error while reconstructingPath. Spot undefined!");
       break;
     }
-    const previousMove: position | undefined = Vars.moveHistory[spot.y][spot.x];
+    const previousMove: position | undefined =
+      dynamicVars.moveHistory[spot.y][spot.x];
+    // console.log(previousMove);
 
     // checking if start was found
     if (typeof previousMove === "undefined") {
       console.error("Error while reconstructingPath. PreviousMove undefined!");
       break;
     }
-    if (previousMove.x === Vars.start?.x && previousMove.y === Vars.start?.y)
+
+    if (previousMove.x === start?.x && previousMove.y === start?.y) {
       break;
+    }
 
     // if start was not found then:
     path.push(previousMove);

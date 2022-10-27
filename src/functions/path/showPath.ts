@@ -4,7 +4,7 @@ export default function showPath(spots: position[]) {
       `.cell[data-y="${y}"][data-x="${x}"]`
     );
     if (boardCellElement) {
-      boardCellElement.style.background = "red";
+      boardCellElement.classList.add("path-highlight");
     }
   });
 }

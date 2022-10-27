@@ -1,16 +1,18 @@
-import Vars from "../../../Vars";
+import dynamicVars from "../../../vars/dynamicVars";
+import staticVars from "../../../vars/staticVars";
 import getBallElement from "./getBallElement";
 
 export default function addBalls() {
   let currentBallIndex = 0;
-  while (currentBallIndex < Vars.nextBalls.length) {
-    const { y, x } = getRandomPosition(Vars.board_SIZE);
+  while (currentBallIndex < dynamicVars.nextBalls.length) {
+    const { y, x } = getRandomPosition(staticVars.BOARD_SIZE);
 
     // space occupied
-    if (Vars.boardArray[y][x] !== null) continue;
+    if (dynamicVars.boardArray[y][x] !== null) continue;
 
-    const ballColor = Vars.nextBalls[currentBallIndex];
-    Vars.boardArray[y][x] = ballColor;
+    const ballColor = dynamicVars.nextBalls[currentBallIndex];
+    dynamicVars.boardArray[y][x] = ballColor;
+    dynamicVars.boardArrayAlgorithm[y][x] = ballColor;
     let cellElement: HTMLDivElement | null = document.querySelector(
       `[data-y="${y}"][data-x="${x}"]`
     );
