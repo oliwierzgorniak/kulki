@@ -7,7 +7,6 @@ import moveBall from "./moveBall";
 import cleanAfterPathfinding from "./cleanAfterPathfinding";
 
 export default function handleClick() {
-  console.log("click");
   let cellElements = document.querySelectorAll(".cell");
 
   cellElements.forEach((el) => {
@@ -16,11 +15,12 @@ export default function handleClick() {
       const y = Number(elementClicked?.dataset.y);
       const x = Number(elementClicked?.dataset.x);
 
+      if (!elementClicked) {
+        console.error("!elementClicked is true");
+        return;
+      }
+
       if (!dynamicVars.isBallSelected) {
-        if (!elementClicked) {
-          console.error("!elementClicked is true");
-          return;
-        }
         // if cell doesn't have a ball
         if (!dynamicVars.boardArray[y][x]) return;
 
@@ -32,7 +32,13 @@ export default function handleClick() {
         removeEventListeners();
         deselectBall();
 
-        if (dynamicVars.boardArray[y][x]) return;
+        // switching to next clicked ball
+        if (dynamicVars.boardArray[y][x]) {
+          selectBall(elementClicked);
+          dynamicVars.start = { x: x, y: y };
+          handleCursorMove();
+          return;
+        }
         moveBall(y, x);
       }
     });
