@@ -34,6 +34,12 @@ export default function handleClick() {
         removeEventListeners();
         deselectBall();
 
+        // clicking the same ball - deselecting
+        const selectedBall = dynamicVars.start;
+        if (selectedBall && selectedBall.x === x && selectedBall.y === y) {
+          return;
+        }
+
         // switching to next clicked ball
         if (dynamicVars.boardArray[y][x]) {
           selectBall(elementClicked);
