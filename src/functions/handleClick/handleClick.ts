@@ -5,6 +5,7 @@ import handleCursorMove from "./handleCursorMove";
 import removeEventListeners from "./removeEventListeners";
 import moveBall from "./moveBall";
 import cleanAfterPathfinding from "./cleanAfterPathfinding";
+import handleBalls from "../balls/handleBalls";
 
 export default function handleClick() {
   let cellElements = document.querySelectorAll(".cell");
@@ -40,6 +41,7 @@ export default function handleClick() {
           return;
         }
         moveBall(y, x);
+        handleBalls();
       }
     });
   });

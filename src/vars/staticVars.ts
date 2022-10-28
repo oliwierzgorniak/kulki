@@ -5,7 +5,7 @@ class StaticVars {
   private static instance: StaticVars;
 
   public BOARD_SIZE = 9;
-  public NUMBER_OF_BALLS = 19;
+  public NUMBER_OF_BALLS = 3;
   public ballsColors = [
     "#303549",
     "#140189",
