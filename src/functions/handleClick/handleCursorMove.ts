@@ -2,7 +2,7 @@ import dynamicVars from "../../vars/dynamicVars";
 import findPath from "../path/findPath";
 import reconstructPath from "../path/reconstructPath";
 import showPath from "../path/showPath";
-import cleanAfterPathfinding from "./cleanAfterPathfinding";
+import cleanAfterPathfinding from "../path/cleanAfterPathfinding";
 
 export function handleMouseEnter(e: Event) {
   cleanAfterPathfinding();

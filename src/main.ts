@@ -2,9 +2,9 @@
 import createHtmlBoard from "./functions/createHtmlBoard";
 import handleClick from "./functions/handleClick/handleClick";
 import dynamicVars from "./vars/dynamicVars";
-import getNextBalls from "./functions/balls/functions/getNextBalls";
+import getNextBalls from "./functions/balls/handleBall/getNextBalls";
 import handleBalls from "./functions/balls/handleBalls";
-import showNextBalls from "./functions/balls/functions/showNextBalls";
+import showNextBalls from "./functions/balls/handleBall/showNextBalls";
 
 createHtmlBoard();
 

@@ -1,10 +1,10 @@
 import dynamicVars from "../../vars/dynamicVars";
-import selectBall from "./selectBall";
-import deselectBall from "./deselectBall";
+import selectBall from "../balls/selectBall";
+import deselectBall from "../balls/deselectBall";
 import handleCursorMove from "./handleCursorMove";
 import removeEventListeners from "./removeEventListeners";
-import moveBall from "./moveBall";
-import cleanAfterPathfinding from "./cleanAfterPathfinding";
+import moveBall from "../balls/moveBall";
+import cleanAfterPathfinding from "../path/cleanAfterPathfinding";
 import handleBalls from "../balls/handleBalls";
 
 export default function handleClick() {

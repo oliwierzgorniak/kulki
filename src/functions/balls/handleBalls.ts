@@ -1,7 +1,7 @@
 import dynamicVars from "../../vars/dynamicVars";
-import addBalls from "./functions/addBalls";
-import getNextBalls from "./functions/getNextBalls";
-import showNextBalls from "./functions/showNextBalls";
+import addBalls from "./handleBall/addBalls";
+import getNextBalls from "./handleBall/getNextBalls";
+import showNextBalls from "./handleBall/showNextBalls";
 
 export default function handleBalls() {
   addBalls();
