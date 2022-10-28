@@ -2,6 +2,7 @@ const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
+  devtool: "eval-source-map",
   entry: {
     main: "./src/main.ts",
   },

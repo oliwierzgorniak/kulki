@@ -11,7 +11,7 @@ export default function findPath(spotChecked: position): true | undefined {
 
   const indexedSpotsFirstEl = dynamicVars.indexedSpots.shift();
   if (typeof indexedSpotsFirstEl === "undefined") {
-    console.error("indexedSpotsFirstEl is undefined");
+    // console.error("indexedSpotsFirstEl is undefined"); // disabled because when it appeared when there was no path for selected ball to the cursor position
     return;
   }
 

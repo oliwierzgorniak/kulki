@@ -6,6 +6,7 @@ import removeEventListeners from "./removeEventListeners";
 import moveBall from "../balls/moveBall";
 import cleanAfterPathfinding from "../path/cleanAfterPathfinding";
 import handleBalls from "../balls/handleBalls";
+import handleSurroundingBalls from "../balls/handleSurroundingBalls";
 
 export default function handleClick() {
   let cellElements = document.querySelectorAll(".cell");
@@ -41,6 +42,12 @@ export default function handleClick() {
           return;
         }
         moveBall(y, x);
+        const ballColor = dynamicVars.boardArray[y][x];
+        if (typeof ballColor === "string") {
+          handleSurroundingBalls(y, x, ballColor);
+        } else {
+          // console.error("ballColor is not string"); disabled because error occured when clicking when there is no path
+        }
         handleBalls();
       }
     });

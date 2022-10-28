@@ -6,14 +6,8 @@ class StaticVars {
 
   public BOARD_SIZE = 9;
   public NUMBER_OF_BALLS = 3;
-  public ballsColors = [
-    "#303549",
-    "#140189",
-    "#812331",
-    "#970321",
-    "#727121",
-    "#297429",
-  ];
+  public REMOVE_BALLS_NUMBER = 4;
+  public ballsColors = ["#303549", "#140189", "#bb0321", "#727121", "#297429"];
 
   public nextBalls: string[] = ["#303549", "#140189", "#812331"];
   public boardArrayAlgorithm: boardArrayType = getSquareArray(
