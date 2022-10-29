@@ -23,6 +23,8 @@ export default function addBalls() {
 
     currentBallIndex++;
   }
+
+  dynamicVars.ballsOnBoard += staticVars.NUMBER_OF_BALLS;
 }
 
 function getRandomPosition(board_SIZE: number): { x: number; y: number } {

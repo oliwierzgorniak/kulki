@@ -78,7 +78,5 @@ export default function checkSurrondingBalls(
 
   balls.sort((a, b) => b.length - a.length);
 
-  console.log(balls);
-
   return balls.length > 0 ? balls[0] : [];
 }

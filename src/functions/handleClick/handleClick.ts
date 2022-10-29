@@ -10,6 +10,7 @@ import handleSurroundingBalls from "../balls/handleSurroundingBalls";
 import staticVars from "../../vars/staticVars";
 import handlePathAfterMove from "../balls/handlePathAfterMove";
 import doesBallHasMove from "./doesBallHasMove";
+import checkForEnd from "./checkForEnd";
 
 export default function handleClick() {
   let cellElements = document.querySelectorAll(".cell");
@@ -71,6 +72,7 @@ export default function handleClick() {
             return;
           }
           handleBalls();
+          checkForEnd();
         }, staticVars.ADD_BALLS_DELAY);
       }
     });

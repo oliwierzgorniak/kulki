@@ -1,4 +1,5 @@
 import dynamicVars from "../../../vars/dynamicVars";
+import updateScore from "./updateScore";
 
 export default function removeBalls(balls: position[]) {
   balls.forEach((pos) => {
@@ -13,4 +14,7 @@ export default function removeBalls(balls: position[]) {
     }
     ball.remove();
   });
+
+  updateScore(balls.length);
+  dynamicVars.ballsOnBoard -= balls.length;
 }

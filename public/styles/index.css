@@ -32,6 +32,16 @@
   background-color: rgba(219, 149, 149, 0.5);
 }
 
+#end-pop-up {
+  padding: 2em;
+  border-radius: 1em;
+  position: absolute;
+  bottom: 50%;
+  right: 50%;
+  transform: translateX(50%) translateY(50%);
+  background-color: rgb(202, 202, 202);
+}
+
 #next-balls {
   display: flex;
   margin-bottom: 1em;

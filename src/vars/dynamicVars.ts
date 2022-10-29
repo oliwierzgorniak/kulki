@@ -15,6 +15,7 @@ class DynamicVars {
     staticVars.BOARD_SIZE,
     null
   );
+  public ballsOnBoard = 0;
   public moveHistory: moveHistoryType = getSquareArray(
     staticVars.BOARD_SIZE,
     undefined
@@ -34,6 +35,8 @@ class DynamicVars {
   public blockInteraction = false;
 
   public skipAddBalls = false;
+
+  public score = 0;
 
   private constructor() {}
 
