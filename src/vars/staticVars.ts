@@ -6,7 +6,7 @@ class StaticVars {
 
   public BOARD_SIZE = 9;
   public NUMBER_OF_BALLS = 3;
-  public REMOVE_BALLS_NUMBER = 4;
+  public REMOVE_BALLS_NUMBER = 5;
   public ADD_BALLS_DELAY = 500; // ms
   public ballsColors = [
     "#ffba49",
