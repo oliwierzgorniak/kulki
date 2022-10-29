@@ -1,13 +1,13 @@
 import dynamicVars from "../../vars/dynamicVars";
 
 export default function findPath(spotChecked: position): true | undefined {
-  const spotsToCheck = getSpotsToCheck(spotChecked);
-  const isEndPointFound = checkIsEndPointFound(spotChecked, spotsToCheck);
+  const spots = getSpots(spotChecked);
+  const isEndPointFound = checkIsEndPointFound(spotChecked, spots);
   if (isEndPointFound) {
     return true;
   }
 
-  addPositionToMoveHistory(spotChecked, spotsToCheck);
+  addPositionToMoveHistory(spotChecked, spots);
 
   const indexedSpotsFirstEl = dynamicVars.indexedSpots.shift();
   if (typeof indexedSpotsFirstEl === "undefined") {
@@ -18,7 +18,7 @@ export default function findPath(spotChecked: position): true | undefined {
   return findPath(indexedSpotsFirstEl);
 }
 
-function getSpotsToCheck(spotChecked: position): position[] {
+function getSpots(spotChecked: position): position[] {
   const surroningSpots = [
     { y: spotChecked.y + 1, x: spotChecked.x },
     { y: spotChecked.y - 1, x: spotChecked.x },
@@ -27,7 +27,7 @@ function getSpotsToCheck(spotChecked: position): position[] {
   ];
 
   // filtering out positions outside of the board and occupied places
-  const spotsToCheck = surroningSpots.filter((spot) => {
+  const spots = surroningSpots.filter((spot) => {
     try {
       return (
         dynamicVars.boardArrayAlgorithm[spot.y][spot.x] === null ||
@@ -38,10 +38,10 @@ function getSpotsToCheck(spotChecked: position): position[] {
     }
   });
 
-  return spotsToCheck;
+  return spots;
 }
-function checkIsEndPointFound(spotChecked: position, spotsToCheck: position[]) {
-  for (let { y, x } of spotsToCheck) {
+function checkIsEndPointFound(spotChecked: position, spots: position[]) {
+  for (let { y, x } of spots) {
     if (typeof dynamicVars.end === "undefined") {
       console.error("Error while finding path. End variable is undefined.");
       continue;
@@ -56,11 +56,8 @@ function checkIsEndPointFound(spotChecked: position, spotsToCheck: position[]) {
   return false;
 }
 
-function addPositionToMoveHistory(
-  spotChecked: position,
-  spotsToCheck: position[]
-) {
-  spotsToCheck.forEach((spot) => {
+function addPositionToMoveHistory(spotChecked: position, spots: position[]) {
+  spots.forEach((spot) => {
     const { y, x } = spot;
     dynamicVars.boardArrayAlgorithm[y][x] = dynamicVars.currentIndex;
     dynamicVars.currentIndex++;

@@ -9,6 +9,7 @@ import handleBalls from "../balls/handleBalls";
 import handleSurroundingBalls from "../balls/handleSurroundingBalls";
 import staticVars from "../../vars/staticVars";
 import handlePathAfterMove from "../balls/handlePathAfterMove";
+import doesBallHasMove from "./doesBallHasMove";
 
 export default function handleClick() {
   let cellElements = document.querySelectorAll(".cell");
@@ -27,6 +28,8 @@ export default function handleClick() {
       if (!dynamicVars.isBallSelected) {
         // if cell doesn't have a ball
         if (!dynamicVars.boardArray[y][x]) return;
+
+        if (!doesBallHasMove(y, x)) return;
 
         selectBall(elementClicked);
         dynamicVars.start = { x: x, y: y };

@@ -7,14 +7,14 @@ function finderFunction(
   ballColor: string,
   ballsArr: position[]
 ) {
-  const toCheck = [
+  const surroundingPositions = [
     { y: y + 1, x: x },
     { y: y, x: x + 1 },
     { y: y - 1, x: x },
     { y: y, x: x - 1 },
   ];
 
-  const balls = toCheck.filter((position) => {
+  const balls = surroundingPositions.filter((position) => {
     // filtering out positions out of the board
     if (
       position.x < 0 ||
