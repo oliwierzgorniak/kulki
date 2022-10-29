@@ -31,6 +31,7 @@ class DynamicVars {
   public isPathFound = false;
 
   public lastPath: position[] = [];
+  public blockInteraction = false;
 
   private constructor() {}
 

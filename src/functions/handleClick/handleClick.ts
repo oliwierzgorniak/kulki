@@ -16,6 +16,8 @@ export default function handleClick() {
 
   cellElements.forEach((el) => {
     el.addEventListener("click", (e) => {
+      if (dynamicVars.blockInteraction) return;
+
       let elementClicked = e.target as HTMLDivElement | null;
       const y = Number(elementClicked?.dataset.y);
       const x = Number(elementClicked?.dataset.x);
