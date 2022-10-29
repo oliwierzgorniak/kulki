@@ -64,7 +64,14 @@ export default function handleClick() {
         } else {
           // console.error("ballColor is not string"); disabled because error occured when clicking when there is no path
         }
-        setTimeout(handleBalls, staticVars.ADD_BALLS_DELAY);
+        setTimeout(() => {
+          // not adding balls when balls were removed
+          if (dynamicVars.skipAddBalls) {
+            dynamicVars.skipAddBalls = false;
+            return;
+          }
+          handleBalls();
+        }, staticVars.ADD_BALLS_DELAY);
       }
     });
   });

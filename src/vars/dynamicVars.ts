@@ -33,6 +33,8 @@ class DynamicVars {
   public lastPath: position[] = [];
   public blockInteraction = false;
 
+  public skipAddBalls = false;
+
   private constructor() {}
 
   public static getInstance(): DynamicVars {
