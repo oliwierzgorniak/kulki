@@ -1,9 +1,6 @@
 import dynamicVars from "../../vars/dynamicVars";
 
 export default function moveBall(y: number, x: number) {
-  // path not available to this point
-  if (!dynamicVars.isPathFound) return;
-
   if (typeof dynamicVars.lastBallSelected === "undefined") {
     console.error("dynamicVars.lastBallSelected is undefined");
     return;

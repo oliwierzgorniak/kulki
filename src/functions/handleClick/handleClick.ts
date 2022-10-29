@@ -49,6 +49,8 @@ export default function handleClick() {
           handleCursorMove();
           return;
         }
+
+        if (!dynamicVars.isPathFound) return;
         moveBall(y, x);
         handlePathAfterMove();
         const ballColor = dynamicVars.boardArray[y][x];
