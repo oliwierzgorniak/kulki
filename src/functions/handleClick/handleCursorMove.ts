@@ -34,6 +34,7 @@ export function handleMouseEnter(e: Event) {
 
   if (isPathFound) {
     const path = reconstructPath();
+    dynamicVars.lastPath = path;
     showPath(path);
   }
   return;

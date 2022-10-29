@@ -30,6 +30,8 @@ class DynamicVars {
   public currentIndex = 1;
   public isPathFound = false;
 
+  public lastPath: position[] = [];
+
   private constructor() {}
 
   public static getInstance(): DynamicVars {

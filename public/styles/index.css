@@ -28,6 +28,10 @@
   background-color: rgb(219, 149, 149);
 }
 
+.path-after-move {
+  background-color: rgba(219, 149, 149, 0.5);
+}
+
 #next-balls {
   display: flex;
   margin-bottom: 1em;

@@ -7,6 +7,8 @@ import moveBall from "../balls/moveBall";
 import cleanAfterPathfinding from "../path/cleanAfterPathfinding";
 import handleBalls from "../balls/handleBalls";
 import handleSurroundingBalls from "../balls/handleSurroundingBalls";
+import staticVars from "../../vars/staticVars";
+import handlePathAfterMove from "../balls/handlePathAfterMove";
 
 export default function handleClick() {
   let cellElements = document.querySelectorAll(".cell");
@@ -48,13 +50,14 @@ export default function handleClick() {
           return;
         }
         moveBall(y, x);
+        handlePathAfterMove();
         const ballColor = dynamicVars.boardArray[y][x];
         if (typeof ballColor === "string") {
           handleSurroundingBalls(y, x, ballColor);
         } else {
           // console.error("ballColor is not string"); disabled because error occured when clicking when there is no path
         }
-        handleBalls();
+        setTimeout(handleBalls, staticVars.ADD_BALLS_DELAY);
       }
     });
   });
