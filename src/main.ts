@@ -9,6 +9,7 @@ import handleBoardRotation from "./functions/handleBoardRotation";
 
 createHtmlBoard();
 
+// adding next balls to next balls div and then adding them to the board and generating new ones
 dynamicVars.nextBalls = getNextBalls();
 showNextBalls();
 handleBalls();

@@ -11,6 +11,11 @@ import staticVars from "../../vars/staticVars";
 import handlePathAfterMove from "../balls/handlePathAfterMove";
 import doesBallHasMove from "./doesBallHasMove";
 import checkForEnd from "./checkForEnd";
+import isTheSameBallBeingClicked from "./isTheSameBallBeingClicked";
+import case1 from "./clickCases/case1";
+import case2 from "./clickCases/case2";
+import case3 from "./clickCases/case3";
+import case4 from "./clickCases/case4";
 
 export default function handleClick() {
   // https://medium.com/@mindplay/clean-dom-queries-in-typescript-c10f362d14fc
@@ -18,8 +23,6 @@ export default function handleClick() {
 
   cellElements.forEach((el) => {
     el.addEventListener("click", (e) => {
-      if (dynamicVars.blockInteraction) return;
-
       let elementClicked = e.target as HTMLDivElement | null;
       const y = Number(elementClicked?.dataset.y);
       const x = Number(elementClicked?.dataset.x);
@@ -29,53 +32,24 @@ export default function handleClick() {
         return;
       }
 
-      if (!dynamicVars.isBallSelected) {
-        // if cell doesn't have a ball
-        if (!dynamicVars.boardArray[y][x]) return;
+      // block interaction terminator
+      if (dynamicVars.blockInteraction) return;
 
-        if (!doesBallHasMove(y, x)) return;
+      // 1. a ball is not selected, a ball is clicked and has an available move
+      const wasCase1Fired = case1(y, x, elementClicked);
+      if (wasCase1Fired) return;
 
-        selectBall(elementClicked);
-        dynamicVars.start = { x: x, y: y };
-        handleCursorMove();
-      } else {
-        cleanAfterPathfinding();
-        removeEventListeners();
-        deselectBall();
+      // 2. a ball is selected, element clicked is empty, a ball can move there
+      const wasCase2Fired = case2(y, x);
+      if (wasCase2Fired) return;
 
-        // clicking the same ball - deselecting
-        const selectedBall = dynamicVars.start;
-        if (selectedBall && selectedBall.x === x && selectedBall.y === y) {
-          return;
-        }
+      // 3. a ball is selected, element clicked is another ball
+      const wasCase3Fired = case3(y, x, elementClicked);
+      if (wasCase3Fired) return;
 
-        // switching to next clicked ball
-        if (dynamicVars.boardArray[y][x]) {
-          selectBall(elementClicked);
-          dynamicVars.start = { x: x, y: y };
-          handleCursorMove();
-          return;
-        }
-
-        if (!dynamicVars.isPathFound) return;
-        moveBall(y, x);
-        handlePathAfterMove();
-        const ballColor = dynamicVars.boardArray[y][x];
-        if (typeof ballColor === "string") {
-          handleSurroundingBalls(y, x, ballColor);
-        } else {
-          // console.error("ballColor is not string"); disabled because error occured when clicking when there is no path
-        }
-        setTimeout(() => {
-          // not adding balls when balls were removed
-          if (dynamicVars.skipAddBalls) {
-            dynamicVars.skipAddBalls = false;
-            return;
-          }
-          handleBalls();
-          checkForEnd();
-        }, staticVars.ADD_BALLS_DELAY);
-      }
+      // 4. ball is selected, element clicked is a ball, element clicked is the selected ball
+      const wasCase4Fired = case4(y, x);
+      if (wasCase4Fired) return;
     });
   });
 }
