@@ -12,7 +12,7 @@ class StaticVars implements myIStaticVars {
 
   public readonly BOARD_SIZE = 9;
   public readonly NUMBER_OF_BALLS = 3;
-  public readonly REMOVE_BALLS_NUMBER = 3;
+  public readonly REMOVE_BALLS_NUMBER = 5;
   public readonly ADD_BALLS_DELAY = 500; // ms
   public readonly ballsColors = [
     "#ffba49",
