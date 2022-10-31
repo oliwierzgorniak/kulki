@@ -21,3 +21,4 @@ type indexedSpotsType = position[];
 
 type cellElementType = HTMLDivElement | null;
 type ballElementType = HTMLDivElement | null;
+type boardElementType = HTMLDivElement | null;

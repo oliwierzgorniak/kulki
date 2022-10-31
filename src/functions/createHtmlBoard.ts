@@ -1,7 +1,5 @@
 import dynamicVars from "../vars/dynamicVars";
 
-type boardElementType = HTMLDivElement | null;
-
 export default function createBoard() {
   let boardElement: boardElementType = document.querySelector("#board");
 

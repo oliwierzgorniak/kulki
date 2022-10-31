@@ -5,6 +5,7 @@ import dynamicVars from "./vars/dynamicVars";
 import getNextBalls from "./functions/balls/handleBall/getNextBalls";
 import handleBalls from "./functions/balls/handleBalls";
 import showNextBalls from "./functions/balls/handleBall/showNextBalls";
+import handleBoardRotation from "./functions/handleBoardRotation";
 
 createHtmlBoard();
 
@@ -13,3 +14,5 @@ showNextBalls();
 handleBalls();
 
 handleClick();
+
+handleBoardRotation();
