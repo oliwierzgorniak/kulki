@@ -48,7 +48,7 @@ export default function checkSurrondingBalls(
 ) {
   let balls: position[][] = [];
 
-  const directions = [
+  const directions: directionInterface[][] = [
     [
       { x: 0, y: 1 },
       { x: 0, y: -1 },

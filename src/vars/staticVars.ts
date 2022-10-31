@@ -1,14 +1,20 @@
 // https://refactoring.guru/design-patterns/singleton/typescript/example
-import getSquareArray from "../functions/getSquareArray";
+interface myIStaticVars {
+  BOARD_SIZE: number;
+  NUMBER_OF_BALLS: number;
+  REMOVE_BALLS_NUMBER: number;
+  ADD_BALLS_DELAY: number; // ms
+  ballsColors: string[];
+}
 
-class StaticVars {
+class StaticVars implements myIStaticVars {
   private static instance: StaticVars;
 
-  public BOARD_SIZE = 9;
-  public NUMBER_OF_BALLS = 3;
-  public REMOVE_BALLS_NUMBER = 5;
-  public ADD_BALLS_DELAY = 500; // ms
-  public ballsColors = [
+  public readonly BOARD_SIZE = 9;
+  public readonly NUMBER_OF_BALLS = 3;
+  public readonly REMOVE_BALLS_NUMBER = 5;
+  public readonly ADD_BALLS_DELAY = 500; // ms
+  public readonly ballsColors = [
     "#ffba49",
     "#20a39e",
     "#ef5b5b",
@@ -17,25 +23,6 @@ class StaticVars {
     "#631a86",
     "#51291e",
   ];
-
-  public nextBalls: string[] = ["#303549", "#140189", "#812331"];
-  public boardArrayAlgorithm: boardArrayType = getSquareArray(
-    this.BOARD_SIZE,
-    null
-  );
-  public boardArray: boardArrayType = getSquareArray(this.BOARD_SIZE, null);
-  public moveHistory: moveHistoryType = getSquareArray(
-    this.BOARD_SIZE,
-    undefined
-  );
-  public start: startType;
-  public end: endType;
-
-  public isBallSelected = false;
-  public lastBallSelected: undefined | HTMLDivElement;
-
-  public indexedSpots: indexedSpotsType = [];
-  currentIndex = 1;
 
   private constructor() {}
 

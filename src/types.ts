@@ -1,9 +1,17 @@
-type position = { y: number; x: number };
+interface position {
+  y: number;
+  x: number;
+}
+
+interface directionInterface {
+  y: -1 | 0 | 1;
+  x: -1 | 0 | 1;
+}
 
 type cellType = position | null | number | string;
 type boardArrayType = cellType[][];
 
-type moveType = { y: number; x: number } | undefined;
+type moveType = position | undefined;
 type moveHistoryType = moveType[][];
 
 type startType = position | undefined;
