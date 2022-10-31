@@ -10,3 +10,6 @@ type startType = position | undefined;
 type endType = position | undefined;
 
 type indexedSpotsType = position[];
+
+type cellElementType = HTMLDivElement | null;
+type ballElementType = HTMLDivElement | null;

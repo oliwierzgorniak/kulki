@@ -1,7 +1,9 @@
 import dynamicVars from "../vars/dynamicVars";
 
+type boardElementType = HTMLDivElement | null;
+
 export default function createBoard() {
-  let boardElement = document.querySelector("#board");
+  let boardElement: boardElementType = document.querySelector("#board");
 
   dynamicVars.boardArray.forEach((arr: cellType[], y: number) => {
     arr.forEach((el: cellType, x: number) => {

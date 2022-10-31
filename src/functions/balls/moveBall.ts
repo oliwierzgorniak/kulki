@@ -21,7 +21,9 @@ export default function moveBall(y: number, x: number) {
   dynamicVars.boardArray[y][x] = ballColor;
 
   // visual representation /////////////////////
-  let newCell = document.querySelector(`.cell[data-y="${y}"][data-x="${x}"]`);
+  let newCell: cellElementType = document.querySelector(
+    `.cell[data-y="${y}"][data-x="${x}"]`
+  );
   if (!newCell) {
     console.error("!newCell is true");
     return;

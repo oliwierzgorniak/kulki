@@ -3,8 +3,7 @@ import dynamicVars from "../../vars/dynamicVars";
 export default function selectBall(elementClicked: HTMLDivElement) {
   dynamicVars.isBallSelected = true;
 
-  const ballElement: HTMLDivElement | null =
-    elementClicked?.querySelector(".ball");
+  const ballElement: ballElementType = elementClicked?.querySelector(".ball");
   if (!ballElement) {
     console.error("No ball element");
     return;

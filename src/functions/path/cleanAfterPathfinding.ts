@@ -10,7 +10,7 @@ export default function cleanAfterPathfinding() {
   dynamicVars.currentIndex = 1;
   dynamicVars.indexedSpots = [];
 
-  let cells = document.querySelectorAll(".path-highlight");
+  let cells = document.querySelectorAll<HTMLDivElement>(".path-highlight");
   cells.forEach((cell) => {
     cell.classList.remove("path-highlight");
   });

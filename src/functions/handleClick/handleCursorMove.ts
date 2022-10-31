@@ -41,7 +41,7 @@ export function handleMouseEnter(e: Event) {
 }
 
 export default function handleCursorMove() {
-  let cells = document.querySelectorAll(".cell");
+  let cells = document.querySelectorAll<HTMLDivElement>(".cell");
   cells.forEach((cell) => {
     cell.addEventListener("mouseenter", handleMouseEnter);
   });

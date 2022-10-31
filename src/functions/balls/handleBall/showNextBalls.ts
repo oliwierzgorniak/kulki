@@ -1,8 +1,10 @@
 import dynamicVars from "../../../vars/dynamicVars";
 import getBallElement from "./getBallElement";
 
+type nextBallsElementType = HTMLDivElement | null;
+
 export default function showNextBalls() {
-  let nextBallsElement: HTMLDivElement | null =
+  let nextBallsElement: nextBallsElementType =
     document.querySelector("#next-balls");
 
   if (!nextBallsElement) {

@@ -13,7 +13,7 @@ export default function addBalls() {
     const ballColor = dynamicVars.nextBalls[currentBallIndex];
     dynamicVars.boardArray[y][x] = ballColor;
     dynamicVars.boardArrayAlgorithm[y][x] = ballColor;
-    let cellElement: HTMLDivElement | null = document.querySelector(
+    let cellElement: cellElementType = document.querySelector(
       `[data-y="${y}"][data-x="${x}"]`
     );
     if (cellElement) {

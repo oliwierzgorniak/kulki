@@ -13,7 +13,8 @@ import doesBallHasMove from "./doesBallHasMove";
 import checkForEnd from "./checkForEnd";
 
 export default function handleClick() {
-  let cellElements = document.querySelectorAll(".cell");
+  // https://medium.com/@mindplay/clean-dom-queries-in-typescript-c10f362d14fc
+  let cellElements = document.querySelectorAll<HTMLDivElement>(".cell");
 
   cellElements.forEach((el) => {
     el.addEventListener("click", (e) => {
