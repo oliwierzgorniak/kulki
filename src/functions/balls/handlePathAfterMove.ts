@@ -16,6 +16,8 @@ export default function handlePathAfterMove() {
       cellElement?.classList.remove("path-after-move");
     }, staticVars.ADD_BALLS_DELAY);
   });
+
+  // diabling interaction block after animation done
   setTimeout(() => {
     dynamicVars.blockInteraction = false;
   }, staticVars.ADD_BALLS_DELAY);

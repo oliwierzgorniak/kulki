@@ -1,6 +1,7 @@
 import dynamicVars from "../../../vars/dynamicVars";
 import staticVars from "../../../vars/staticVars";
-import getBallElement from "./getBallElement";
+import getRandomPosition from "./addBalls/getRandomPosition";
+import handleBall from "./addBalls/handleBall";
 
 export default function addBalls() {
   let currentBallIndex = 0;
@@ -10,27 +11,10 @@ export default function addBalls() {
     // space occupied
     if (dynamicVars.boardArray[y][x] !== null) continue;
 
-    const ballColor = dynamicVars.nextBalls[currentBallIndex];
-    dynamicVars.boardArray[y][x] = ballColor;
-    dynamicVars.boardArrayAlgorithm[y][x] = ballColor;
-    let cellElement: cellElementType = document.querySelector(
-      `[data-y="${y}"][data-x="${x}"]`
-    );
-    if (cellElement) {
-      const ballElement = getBallElement(ballColor);
-      cellElement.append(ballElement);
-    }
+    handleBall(y, x, currentBallIndex);
 
     currentBallIndex++;
   }
 
   dynamicVars.ballsOnBoard += staticVars.NUMBER_OF_BALLS;
-}
-
-function getRandomPosition(board_SIZE: number): { x: number; y: number } {
-  return { x: getRandom(board_SIZE), y: getRandom(board_SIZE) };
-}
-
-function getRandom(limit: number): number {
-  return Math.floor(Math.random() * limit);
 }
