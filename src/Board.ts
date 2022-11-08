@@ -8,7 +8,7 @@ function RotateLeft() {
     const original = descriptor.value;
 
     descriptor.value = function (...args: any[]) {
-      const result = original.apply(this, ["rotate(-90deg)"]);
+      const result = original.apply(this, ["rotate(-45deg)"]);
       return result;
     };
     return descriptor;
@@ -23,7 +23,7 @@ export default class Board {
    * Method which rotates the board
    */
   @RotateLeft()
-  static rotate(rotation: string = "rotate(90deg)") {
+  static rotate(rotation: string = "rotate(45deg)") {
     const boardElement: boardElementType = document.querySelector("#board");
     if (!boardElement) {
       console.error("!this.boardElement is true");

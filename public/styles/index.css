@@ -3,6 +3,12 @@
   font-family: sans-serif;
 }
 
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}
+
 #board {
   display: grid;
   grid-template-columns: repeat(9, auto);
