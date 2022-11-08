@@ -1,6 +1,9 @@
 import dynamicVars from "../../../../vars/dynamicVars";
 import getBallElement from "../getBallElement";
 
+/**
+ * A function used in addBalls function. It adds a ball color to arrays and a ball of that color to the board.
+ */
 export default function handleBall(
   y: number,
   x: number,

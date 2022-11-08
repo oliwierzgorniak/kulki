@@ -3,6 +3,9 @@ import getBallElement from "./getBallElement";
 
 type nextBallsElementType = HTMLDivElement | null;
 
+/**
+ * A function which adds balls elements to next-balls HTML element
+ */
 export default function showNextBalls() {
   let nextBallsElement: nextBallsElementType =
     document.querySelector("#next-balls");

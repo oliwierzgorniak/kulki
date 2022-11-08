@@ -1,5 +1,13 @@
 import dynamicVars from "../vars/dynamicVars";
 
+/**
+ * @example
+ * ```ts
+ * let boardElment = createBoard();
+ * boardElement.style.transform = 'rotate(45deg)';
+ * ```
+ * You can initialize a var with a board HTML element like that;
+ */
 export default function createBoard() {
   let boardElement: boardElementType = document.querySelector("#board");
 

@@ -15,7 +15,13 @@ function RotateLeft() {
   };
 }
 
+/**
+ * Class made for using a decorator
+ */
 export default class Board {
+  /**
+   * Method which rotates the board
+   */
   @RotateLeft()
   static rotate(rotation: string = "rotate(90deg)") {
     const boardElement: boardElementType = document.querySelector("#board");

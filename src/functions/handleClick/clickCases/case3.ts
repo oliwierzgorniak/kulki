@@ -12,7 +12,13 @@ type case3Type = (
   elementClicked: HTMLDivElement
 ) => boolean;
 
-// 3. a ball is selected, element clicked is another ball
+/**
+ * A function which the case: 3. a ball is selected, element clicked is another ball
+ * @param y y position of a ball
+ * @param x x position of a ball
+ * @param elementClicked a ball
+ * @returns wheter condition was fired
+ */
 const case3: case3Type = (y, x, elementClicked) => {
   const isBallBeingClicked = typeof dynamicVars.boardArray[y][x] === "string";
   if (

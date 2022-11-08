@@ -4,13 +4,19 @@ import handlePathAfterMove from "../../balls/handlePathAfterMove";
 import handleSurroundingBalls from "../../balls/handleSurroundingBalls";
 import moveBall from "../../balls/moveBall";
 import cleanAfterPathfinding from "../../path/cleanAfterPathfinding";
+import checkForEnd from "../checkForEnd";
 import isTheSameBallBeingClicked from "../isTheSameBallBeingClicked";
 import removeEventListeners from "../removeEventListeners";
 import handleAnimation from "./case4/handleAnimation";
 
 type case2Type = (y: number, x: number) => boolean;
 
-// 2. a ball is selected, element clicked is empty, a ball can move there
+/**
+ * A function which the case: 2. a ball is selected, element clicked is empty, a ball can move there
+ * @param y y position of a ball
+ * @param x x position of a ball
+ * @returns wheter condition was fired
+ */
 const case2: case2Type = (y, x) => {
   const isClickedElementFree = !dynamicVars.boardArray[y][x];
   if (
@@ -30,6 +36,8 @@ const case2: case2Type = (y, x) => {
     if (typeof ballColor === "string") {
       handleSurroundingBalls(y, x, ballColor);
     }
+
+    checkForEnd();
 
     handleAnimation();
     return true;

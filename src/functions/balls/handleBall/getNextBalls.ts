@@ -1,5 +1,8 @@
 import staticVars from "../../../vars/staticVars";
 
+/**
+ * @returns random colors of next balls
+ */
 export default function getNextBalls() {
   let nextColors = [];
   for (let i = 0; i < staticVars.NUMBER_OF_BALLS; i++) {

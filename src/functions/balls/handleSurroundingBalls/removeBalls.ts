@@ -1,6 +1,10 @@
 import dynamicVars from "../../../vars/dynamicVars";
 import updateScore from "./updateScore";
 
+/**
+ * A function which removes balls
+ * @param balls balls to be removed
+ */
 export default function removeBalls(balls: position[]) {
   balls.forEach((pos) => {
     dynamicVars.boardArray[pos.y][pos.x] = null;

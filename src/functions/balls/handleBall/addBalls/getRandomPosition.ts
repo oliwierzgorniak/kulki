@@ -1,8 +1,15 @@
+import staticVars from "../../../../vars/staticVars";
 import getRandom from "./getRandom";
 
-export default function getRandomPosition(board_SIZE: number): {
+/**
+ * @returns random position for a ball
+ */
+export default function getRandomPosition(): {
   x: number;
   y: number;
 } {
-  return { x: getRandom(board_SIZE), y: getRandom(board_SIZE) };
+  return {
+    x: getRandom(staticVars.BOARD_SIZE),
+    y: getRandom(staticVars.BOARD_SIZE),
+  };
 }

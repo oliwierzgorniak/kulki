@@ -1,5 +1,8 @@
 import dynamicVars from "../../vars/dynamicVars";
 
+/**
+ * A function which deselects the active ball.
+ */
 export default function deselectBall() {
   if (!dynamicVars.lastBallSelected) {
     console.error("no last ball selected");

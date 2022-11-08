@@ -1,6 +1,9 @@
 import dynamicVars from "../../../../vars/dynamicVars";
 import staticVars from "../../../../vars/staticVars";
 
+/**
+ * A recursion function which is used for finding balls placed in a pattern.
+ */
 export default function finderFunction(
   y: number,
   x: number,

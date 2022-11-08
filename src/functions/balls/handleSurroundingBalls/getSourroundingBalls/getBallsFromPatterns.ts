@@ -1,5 +1,8 @@
 import staticVars from "../../../../vars/staticVars";
 
+/**
+ * @returns balls which are placed in a line pattern in a form of an array of objects.
+ */
 export default function getBallsFromPatterns(ballPatterns: position[][]) {
   const longEnoughPatterns = ballPatterns.filter(
     (pattern) => pattern.length >= staticVars.REMOVE_BALLS_NUMBER

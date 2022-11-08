@@ -2,6 +2,9 @@ import directions from "./getSourroundingBalls/directions";
 import finderFunction from "./getSourroundingBalls/finderFunction";
 import getBallsFromPatterns from "./getSourroundingBalls/getBallsFromPatterns";
 
+/**
+ * A function which is used for finding balls placed in a line pattern.
+ */
 export default function getSurrondingBalls(
   y: number,
   x: number,

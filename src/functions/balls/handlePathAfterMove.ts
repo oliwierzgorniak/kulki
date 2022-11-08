@@ -3,6 +3,9 @@ import staticVars from "../../vars/staticVars";
 
 type cellElementT = HTMLDivElement | null;
 
+/**
+ * A function which is responsible for showing a path of a ball after a move.
+ */
 export default function handlePathAfterMove() {
   dynamicVars.blockInteraction = true;
   dynamicVars.lastPath.forEach(({ y, x }) => {

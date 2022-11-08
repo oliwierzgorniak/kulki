@@ -8,7 +8,13 @@ type case1Type = (
   elementClicked: HTMLDivElement
 ) => boolean;
 
-// 1. a ball is not selected, a ball is clicked and has an available move
+/**
+ * A function which the case: 1. a ball is not selected, a ball is clicked and has an available move
+ * @param y y position of a ball
+ * @param x x position of a ball
+ * @param elementClicked a ball
+ * @returns wheter condition was fired
+ */
 const case1: case1Type = (y, x, elementClicked) => {
   if (!dynamicVars.isBallSelected && dynamicVars.boardArray[y][x]) {
     const ball = elementClicked;
