@@ -11,7 +11,7 @@ class StaticVars implements myIStaticVars {
   private static instance: StaticVars;
 
   public readonly BOARD_SIZE = 9;
-  public readonly NUMBER_OF_BALLS = 3;
+  public readonly NUMBER_OF_BALLS = 10;
   public readonly REMOVE_BALLS_NUMBER = 5;
   public readonly ADD_BALLS_DELAY = 500; // ms
   public readonly ballsColors = [
@@ -24,7 +24,7 @@ class StaticVars implements myIStaticVars {
     "#51291e",
   ];
 
-  private constructor() {}
+  protected constructor() {}
 
   public static getInstance(): StaticVars {
     if (!StaticVars.instance) {

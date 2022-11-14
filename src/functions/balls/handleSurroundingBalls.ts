@@ -14,8 +14,10 @@ export default function handleSurroundingBalls(
   x: number,
   ballColor: string
 ) {
+  // surrounding balls only which are in a line
   const surroundingBalls = getSurroundingBalls(y, x, ballColor);
 
+  // possibly returns balls from more than one patter but it stills fires the if condition
   if (surroundingBalls.length < staticVars.REMOVE_BALLS_NUMBER) return;
 
   dynamicVars.skipAddBalls = true;

@@ -38,7 +38,7 @@ class DynamicVars {
 
   public score = 0;
 
-  private constructor() {}
+  protected constructor() {}
 
   public static getInstance(): DynamicVars {
     if (!DynamicVars.instance) {

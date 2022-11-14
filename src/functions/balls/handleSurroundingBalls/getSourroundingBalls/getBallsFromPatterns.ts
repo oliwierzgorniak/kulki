@@ -21,5 +21,5 @@ export default function getBallsFromPatterns(ballPatterns: position[][]) {
     }
   });
 
-  return balls;
+  return ballsUnique;
 }

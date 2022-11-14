@@ -4,7 +4,7 @@ import staticVars from "../../vars/staticVars";
 export default function checkForEnd() {
   const numberOfCells = staticVars.BOARD_SIZE ** 2;
   if (dynamicVars.ballsOnBoard + staticVars.NUMBER_OF_BALLS < numberOfCells)
-    return;
+    return false;
 
   dynamicVars.blockInteraction = true;
   let endPopUpElement = document.createElement("div");
@@ -12,4 +12,6 @@ export default function checkForEnd() {
   endPopUpElement.innerHTML = `<h2>Koniec gry</h2><p>wynik: ${dynamicVars.score}</p>`;
 
   document.body.appendChild(endPopUpElement);
+
+  return true;
 }

@@ -2,6 +2,8 @@ import dynamicVars from "../../../vars/dynamicVars";
 import deselectBall from "../../balls/deselectBall";
 import selectBall from "../../balls/selectBall";
 import cleanAfterPathfinding from "../../path/cleanAfterPathfinding";
+import getDoesBallHaveMove from "../getDoesBallHaveMove";
+import getgetDoesBallHaveMove from "../getDoesBallHaveMove";
 import handleCursorMove from "../handleCursorMove";
 import isTheSameBallBeingClicked from "../isTheSameBallBeingClicked";
 import removeEventListeners from "../removeEventListeners";
@@ -13,7 +15,7 @@ type case3Type = (
 ) => boolean;
 
 /**
- * A function which the case: 3. a ball is selected, element clicked is another ball
+ * A function with the case: 3. a ball is selected, element clicked is another ball which has an available move
  * @param y y position of a ball
  * @param x x position of a ball
  * @param elementClicked a ball
@@ -24,7 +26,8 @@ const case3: case3Type = (y, x, elementClicked) => {
   if (
     dynamicVars.isBallSelected &&
     isBallBeingClicked &&
-    !isTheSameBallBeingClicked(y, x)
+    !isTheSameBallBeingClicked(y, x) &&
+    getDoesBallHaveMove(y, x)
   ) {
     cleanAfterPathfinding();
     removeEventListeners();

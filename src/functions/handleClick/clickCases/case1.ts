@@ -1,5 +1,6 @@
 import dynamicVars from "../../../vars/dynamicVars";
 import selectBall from "../../balls/selectBall";
+import getDoesBallHaveMove from "../getDoesBallHaveMove";
 import handleCursorMove from "../handleCursorMove";
 
 type case1Type = (
@@ -9,15 +10,20 @@ type case1Type = (
 ) => boolean;
 
 /**
- * A function which the case: 1. a ball is not selected, a ball is clicked and has an available move
+ * A function with the case: 1. a ball is not selected, a ball is clicked and has an available move
  * @param y y position of a ball
  * @param x x position of a ball
  * @param elementClicked a ball
  * @returns wheter condition was fired
  */
 const case1: case1Type = (y, x, elementClicked) => {
-  if (!dynamicVars.isBallSelected && dynamicVars.boardArray[y][x]) {
+  if (
+    !dynamicVars.isBallSelected &&
+    dynamicVars.boardArray[y][x] &&
+    getDoesBallHaveMove(y, x)
+  ) {
     const ball = elementClicked;
+
     selectBall(ball);
 
     const ballPosition = { y: y, x: x };

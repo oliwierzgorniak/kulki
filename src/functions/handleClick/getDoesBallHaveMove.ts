@@ -1,7 +1,7 @@
 import dynamicVars from "../../vars/dynamicVars";
 import staticVars from "../../vars/staticVars";
 
-export default function doesBallHasMove(y: number, x: number) {
+export default function getgetDoesBallHaveMove(y: number, x: number) {
   const surroundingPositions = [
     { y: y + 1, x: x },
     { y: y, x: x + 1 },

@@ -12,7 +12,7 @@ import handleAnimation from "./case4/handleAnimation";
 type case2Type = (y: number, x: number) => boolean;
 
 /**
- * A function which the case: 2. a ball is selected, element clicked is empty, a ball can move there
+ * A function with a case: 2. a ball is selected, element clicked is empty, a ball can move there
  * @param y y position of a ball
  * @param x x position of a ball
  * @returns wheter condition was fired
@@ -37,7 +37,8 @@ const case2: case2Type = (y, x) => {
       handleSurroundingBalls(y, x, ballColor);
     }
 
-    checkForEnd();
+    const wasGameEnded = checkForEnd();
+    if (wasGameEnded) return true;
 
     handleAnimation();
     return true;

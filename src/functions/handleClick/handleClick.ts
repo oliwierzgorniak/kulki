@@ -30,7 +30,7 @@ export default function handleClick() {
       const wasCase2Fired = case2(y, x);
       if (wasCase2Fired) return;
 
-      // 3. a ball is selected, element clicked is another ball
+      // 3. a ball is selected, element clicked is another ball which has a move
       const wasCase3Fired = case3(y, x, elementClicked);
       if (wasCase3Fired) return;
 
