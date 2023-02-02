@@ -1,3 +1,8 @@
-# kulki
+# Kulki
+[Link](https://kulki.netlify.app/)
 
-Project implementing pathfinding algorithm written in typescript.
+## Description
+An old game, which implements A* pathfinding algorithm
+
+## Technology
+I used typescript, typedoc and a decorator.
